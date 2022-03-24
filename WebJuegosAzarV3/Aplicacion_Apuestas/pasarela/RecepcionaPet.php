@@ -43,6 +43,8 @@ if (!empty( $_POST ) ) {//URL DE RESP. ONLINE
 							if($respuesta==0 && !empty($dni)){
 							
 								$respuesta="ok";
+								
+								
 								 registroApostante($conexion,$dni,$nombre,$apellido,$email,$saldo);
 								echo "<p>".$nombre." ".$apellido." te has registrado en el sistema</p><br>";
 								echo "<form method='POST' action='../controllers/RegistroApostante_controllers.php'>";

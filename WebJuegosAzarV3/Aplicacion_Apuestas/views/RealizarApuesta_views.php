@@ -1,10 +1,10 @@
 <?php
-	// if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
-		// header("Location:../index.php");
-		// unset($_SESSION['id']);
-		// unset($_SESSION['usuario']);
-		// session_destroy();
-		// }
+	if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
+		header("Location:../index.php");
+		unset($_SESSION['id']);
+		unset($_SESSION['usuario']);
+		session_destroy();
+	}
 ?>
 <html>
 <head>
@@ -18,20 +18,16 @@
 	<div class="card-header"><h2>Realizar Apuesta</h2></div>
 		<div class="card-body">
 
-		<B>Bienvenido/a:</B><?php /* echo $_SESSION['usuario']; */ ?> <BR><BR>
-		<B>Identificador Apostador:</B><?php /* echo $_SESSION['id']; */ ?>  <BR>
+		<B>Bienvenido/a:</B><?php echo $_SESSION['usuario']; ?> <BR><BR>
+		<B>Identificador Apostador:</B><?php echo $_SESSION['id']; ?>  <BR>
 		
 	
 	<form method="post" action="RealizarSorteo_controllers.php">
 			<p>
 			Sorteos Activos:
 			<?php
-				echo "Mostrar todos los sorteos";
-				echo "una variable fecha date con formato y/m/d";
-				echo "Elegir numeros y meterlo en una session";
-				echo "El importe es un 1E";
-				echo "Puede apostar las que quiera";
-				/* mostrarSelect($_SESSION['id']); */
+				
+				mostrarSelect($_SESSION['id']); 
 			/* 	DNI       
 				NSORTEO  
 				FECHA           
@@ -41,9 +37,15 @@
 				N4
 				N5
 				N6
+				R = 1€
 				C 
 				IMPORTE_PREMIO
 				CATEGORIA_PREMIO */
+				echo "<br>";
+				echo "una variable fecha date con formato y/m/d";
+				echo "Elegir numeros y meterlo en una session";
+				echo "La apuesta es de un 1E";
+				echo "Puede apostar las que quiera";
 			?>
 			</p>
 			<div>

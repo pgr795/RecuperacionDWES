@@ -1,10 +1,10 @@
 <?php
-/* 	if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
+	if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
 		header("Location:../index.php");
 		unset($_SESSION['id']);
 		unset($_SESSION['usuario']);
 		session_destroy();
-	} */
+	}
 ?>
 <html>
 <head>
@@ -18,8 +18,8 @@
 	<div class="card-header"><h2>Cargar Saldo</h2></div>
 		<div class="card-body">
 
-		<B>Bienvenido/a:</B><?php /* echo $_SESSION['usuario'];  */?> <BR><BR>
-		<B>Identificador Apostador:</B><?php /* echo $_SESSION['id']; */ ?>  <BR>
+		<B>Bienvenido/a:</B><?php echo $_SESSION['usuario']; ?> <BR><BR>
+		<B>Identificador Apostador:</B><?php echo $_SESSION['id']; ?>  <BR>
 		
 	
 	<form method="post" action="AltaSorteo_controllers.php">

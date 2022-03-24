@@ -2,7 +2,7 @@
 
 function login($conexion,$usuario,$password){
 	try{
-		$consultar = $conexion->prepare("SELECT dni,nombre,apellido FROM empleado WHERE dni='$usuario' AND apellido='$password'");
+		$consultar = $conexion->prepare("SELECT dni,nombre,apellido FROM apostante WHERE dni='$usuario' AND apellido='$password'");
 		$consultar->execute();
 		$cont=0;
 		

@@ -1,10 +1,10 @@
 <?php
-	/* if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
+	if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
 		header("Location:../index.php");
 		unset($_SESSION['id']);
 		unset($_SESSION['usuario']);
 		session_destroy();
-	} */
+	}
 ?>
 <html>
  <head>
@@ -25,8 +25,8 @@
 		<div class="card-body">
 		<BR>
 
-		<B>Bienvenido/a:</B><?php /* echo $_SESSION['usuario']; */ ?> <BR><BR>
-		<B>Identificador Apostador:</B><?php /* echo $_SESSION['id']; */ ?>  <BR><BR>
+		<B>Bienvenido/a:</B><?php echo $_SESSION['usuario']; ?> <BR><BR>
+		<B>Identificador Apostador:</B><?php echo $_SESSION['id']; ?>  <BR><BR>
 	 
 		
        <!--Formulario con botones -->

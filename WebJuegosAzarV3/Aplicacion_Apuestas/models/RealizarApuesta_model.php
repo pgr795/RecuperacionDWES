@@ -1,5 +1,5 @@
 <?php
-function realizarSorteo($conexion,$combinacionGanadora){
+function realizarApuesta($conexion,$Apuesta){
 	try{
 		$nSorteo=$combinacionGanadora[8];
 		if($nSorteo!=null){
@@ -17,7 +17,7 @@ function realizarSorteo($conexion,$combinacionGanadora){
 			echo $e->getMessage();
 	}
 }
-function añadirCombinacion($conexion,$nSorteo,$combinacionGanadora){
+function añadirApuesta($conexion,$nSorteo,$combinacionGanadora){
 	try{
 		$combinacion="";
 		foreach ($combinacionGanadora as $indice => $valor){
@@ -35,10 +35,10 @@ function añadirCombinacion($conexion,$nSorteo,$combinacionGanadora){
 			echo $e->getMessage();
 	}
 }
-function actualizarPremios($conexion,$nSorteo){
+function actualizarSaldo($conexion,$nSorteo){
 	try{
-		$recaudacion=recaudacionTotal($conexion,$nSorteo);
-		$recaudacionPremios=intval($recaudacion[0]/2);
+		// $recaudacion=recaudacionTotal($conexion,$nSorteo);
+		// $recaudacionPremios=intval($recaudacion[0]/2);
 		//var_dump($recaudacionPremios);
 		$actualizar= "UPDATE sorteo SET recaudacion_premios ='$recaudacionPremios' WHERE nSorteo='$nSorteo'";
 		$conexion->exec($actualizar);
@@ -48,48 +48,11 @@ function actualizarPremios($conexion,$nSorteo){
 			echo $e->getMessage();
 	}
 }
-function finalizarSorteo($conexion,$nSorteo){
-	try{
-		$actualizar= "UPDATE sorteo SET activo='N' WHERE nSorteo='$nSorteo'";
-		$conexion->exec($actualizar);
-	}
-	catch(PDOException $e){
-			echo "Error finalizarSorteo"."<br>";
-			echo $e->getMessage();
-	}
-}
-function combinacionGanadora(){
-    $combinacionGanadora=array(); //Array Vacio
-    $contador=0;
-	
-    while($contador != 7){
-       
-	   $bola=bolas(); //Bola Random
-		
-        if(!in_array($bola,$combinacionGanadora)){
-            $combinacionGanadora[$contador]=$bola;
-            $contador++;
-		}
-		
-		else{
-            $bola=bolas();
-		}
-    }   
-    $combinacionGanadora[7]=reintegro();
-    return $combinacionGanadora;
-}
-function bolas(){
-    $bola=rand(1,49);
-    return $bola;
-}
-function reintegro(){
-    $reintegro=rand(1,9);
-    return $reintegro;
-}
+
 function mostrarSelect($id){
 	try {
 		$conexion=conexion();
-		$select = $conexion->prepare("SELECT NSORTEO FROM sorteo WHERE activo='S' AND dni='$id'");	 
+		$select = $conexion->prepare("SELECT NSORTEO FROM sorteo WHERE activo='S'");	 
 		$select->execute();
 			
 		echo "<select name='idSorteo'>";
