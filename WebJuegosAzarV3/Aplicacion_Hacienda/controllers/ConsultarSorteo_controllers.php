@@ -12,6 +12,9 @@ include_once '../db/db.php';
 include_once '../models/ConsultarSorteo_model.php';
 include_once '../views/ConsultarSorteo_views.php';
 
+//Recoger datos del sorteo y mostrarlo en vista con echos
+//$sorteos=sorteos($_SESSION['id']);
+
 $conexion=conexion();
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -19,6 +22,7 @@ $conexion=conexion();
 		$accion=$_POST["accion"];
 		$sorteo=$_POST["idSorteo"];
 		if($accion=="Consultar Sorteos"){
+			
 			$datos=recopilarDatos($conexion,$sorteo);
 			//var_dump($datos);
 			mostrarInformacion($conexion,$datos);

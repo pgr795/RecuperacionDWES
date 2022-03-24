@@ -26,7 +26,7 @@ if(!isset($_SESSION['id']) && !isset($_SESSION['usuario'])){
 	<form method="post" action="ConsultarSorteo_controllers.php">
 			<p>
 			<?php
-				$sorteos=sorteos($_SESSION['id']);
+			
 				mostrarSorteos($sorteos);
 			?>
 			</p>
