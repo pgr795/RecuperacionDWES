@@ -385,7 +385,7 @@ function aciertos($conexion,$SorteoActivo,$combinacionGanadora){
 		$numeroApuestas=count($apuestas);
 		$cont=0;
 		
-		//var_dump($apuestas);
+		// var_dump($apuestas);
 		
 		$aciertos=array();
 		while($cont < $numeroApuestas){
@@ -447,9 +447,13 @@ function premiosRepartido($conexion,$SorteoActivo){
 ////////////////////////////////////////////////////////////////////////////////////////////////
 function comprobarAciertos($apuesta,$combinacionGanadora){
 		$reintegroA=array_pop($apuesta);
+		// var_dump($reintegroA);
 		$complementoA=array_pop($apuesta);
+		// var_dump($complementoA);
 		$reintegroB=array_pop($combinacionGanadora);
-		$complementoB=$reintegroB=array_pop($combinacionGanadora);
+		// var_dump($reintegroB);
+		$complementoB=array_pop($combinacionGanadora);
+		// var_dump($complementoB);
 		// $combinacionPrueba=array(10,20,25,40,44,46,49,6);
 		// $reintegroB=array_pop($combinacionPrueba);
 		// $complementoB=array_pop($combinacionPrueba);
@@ -478,7 +482,7 @@ function comprobarAciertos($apuesta,$combinacionGanadora){
 		}
 		
 		$aciertos=array($cont,$c,$r);
-		//var_dump($aciertos);
+		// var_dump($aciertos);
 		return $aciertos;
 }
 function apuestasSorteo($conexion,$SorteoActivo){
