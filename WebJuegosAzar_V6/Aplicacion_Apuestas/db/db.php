@@ -5,7 +5,7 @@
 	function conexion(){
 	  $servername = "localhost";
 	  $username = "root";
-	  $password = "rootroot";
+	  $password = "";
 	  $dbname = "iesprimitiva";
 
 	  try {
