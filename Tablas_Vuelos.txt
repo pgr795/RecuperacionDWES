@@ -1,0 +1,79 @@
+AIRLINE
++--------------+-------------+------+-----+---------+----------------+
+| Field        | Type        | Null | Key | Default | Extra          |
++--------------+-------------+------+-----+---------+----------------+
+| airline_id   | smallint(6) | NO   | PRI | NULL    | auto_increment |
+| iata         | char(2)     | NO   |     | NULL    |                |
+| airlinename  | varchar(30) | YES  |     | NULL    |                |
+| base_airport | smallint(6) | NO   | MUL | NULL    |                |
++--------------+-------------+------+-----+---------+----------------+
+
+mysql> desc airplane;
++-------------+-----------------------+------+-----+---------+-------+
+| Field       | Type                  | Null | Key | Default | Extra |
++-------------+-----------------------+------+-----+---------+-------+
+| airplane_id | int(11)               | NO   | PRI | NULL    |       |
+| capacity    | mediumint(8) unsigned | NO   |     | NULL    |       |
+| type_id     | int(11)               | NO   |     | NULL    |       |
+| airline_id  | smallint(6)           | NO   | MUL | NULL    |       |
++-------------+-----------------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc airport;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| airport_id | smallint(6) | NO   | PRI | NULL    |       |
+| iata       | char(3)     | YES  |     | NULL    |       |
+| icao       | char(4)     | NO   |     | NULL    |       |
+| name       | varchar(50) | NO   |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> desc booking;
++--------------+---------------+------+-----+---------+-------+
+| Field        | Type          | Null | Key | Default | Extra |
++--------------+---------------+------+-----+---------+-------+
+| booking_id   | int(11)       | NO   | PRI | NULL    |       |
+| flight_id    | int(11)       | NO   | MUL | NULL    |       |
+| seat         | char(4)       | YES  |     | NULL    |       |
+| passenger_id | int(11)       | NO   | MUL | NULL    |       |
+| price        | decimal(10,2) | NO   |     | NULL    |       |
++--------------+---------------+------+-----+---------+-------+
+5 rows in set (0.00 sec)
+
+mysql> desc flight;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| flight_id   | int(11)     | NO   | PRI | NULL    |       |
+| flightno    | char(8)     | NO   |     | NULL    |       |
+| from_a      | smallint(6) | NO   | MUL | NULL    |       |
+| to_a        | smallint(6) | NO   | MUL | NULL    |       |
+| departure   | datetime    | NO   |     | NULL    |       |
+| arrival     | datetime    | NO   |     | NULL    |       |
+| airline_id  | smallint(6) | NO   | MUL | NULL    |       |
+| airplane_id | int(11)     | NO   | MUL | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+
+mysql> desc passengerdetails;
++--------------+--------------+------+-----+---------+-------+
+| Field        | Type         | Null | Key | Default | Extra |
++--------------+--------------+------+-----+---------+-------+
+| passenger_id | int(11)      | NO   | PRI | NULL    |       |
+| name         | varchar(120) | NO   |     | NULL    |       |
+| birthdate    | date         | NO   |     | NULL    |       |
+| sex          | char(1)      | YES  |     | NULL    |       |
+| street       | varchar(100) | NO   |     | NULL    |       |
+| city         | varchar(100) | NO   |     | NULL    |       |
+| zip          | smallint(6)  | NO   |     | NULL    |       |
+| country      | varchar(100) | NO   |     | NULL    |       |
+| emailaddress | varchar(120) | YES  |     | NULL    |       |
+| telephoneno  | varchar(30)  | YES  |     | NULL    |       |
++--------------+--------------+------+-----+---------+-------+
+10 rows in set (0.00 sec)
+
+
+passenger_id=  ??
+un vuelo en consiste la ida y la vuelta?
+Seat?
