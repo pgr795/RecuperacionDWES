@@ -1,18 +1,18 @@
 <?php
 function login($conexion,$usuario,$password){
 	try{
-		$consultar = $conexion->prepare("SELECT emailaddress,birthdate,name,passenger_id FROM passengerdetails WHERE emailaddress='$usuario' AND birthdate='$password'");
+		$consultar = $conexion->prepare("SELECT Email,CustomerId,FirstName,LastName,Company FROM customer WHERE Email='$usuario' AND LastName='$password'");
 		$consultar->execute();
 		$cont=0;
 		
 		foreach($consultar->fetchAll() as $consulta){
-                $emailaddressBD=$consulta["emailaddress"];
-				$birthdateBD=$consulta["birthdate"];
+                $EmailBD=$consulta["Email"];
+				$LastNameBD=$consulta["LastName"];
 				$cont++;
 		}
 		
 		if($cont == 1){
-			if($emailaddressBD==$usuario && $birthdateBD==$password){
+			if($EmailBD==$usuario && $LastNameBD==$password){
                     $consultar->execute();
                     return $consultar->fetchAll();
 			}
