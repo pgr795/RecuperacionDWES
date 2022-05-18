@@ -5,7 +5,7 @@
 	function conexion(){
 	  $servername = "localhost";
 	  $username = "root";
-	  $password = "";
+	  $password = "rootroot";
 	  $dbname = "iesmusica";
 
 	  try {
