@@ -45,8 +45,8 @@
 			$moneda="978";
 			$trans="0";
 			$url="";
-			$urlOKKO="http://127.0.0.1/Asignaturas/DWES/MVC/WebPortalMusica/PortalMusica/pasarela/RecepcionaPet.php";
-			// $urlOKKO="http://192.168.206.222/REC/Pablo%20Garcia/WebPortalMusica/PortalMusica/pasarela/RecepcionaPet.php";
+			//$urlOKKO="http://127.0.0.1/Asignaturas/DWES/MVC/WebPortalMusica_V2/PortalMusica/pasarela/RecepcionaPet.php";
+			$urlOKKO="http://192.168.206.222/REC/Pablo%20Garcia/WebPortalMusica_V2/PortalMusica/pasarela/RecepcionaPet.php";
 			$id=time();
 				
 			// Se Rellenan los campos
