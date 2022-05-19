@@ -69,8 +69,8 @@
 						unset($_SESSION["idCanciones"]);
 						unset($_SESSION["canciones"]);
 						
-						// header('Location:../pasarela/GeneraPet.php');
-						// $_SESSION['invoiceId']=$invoiceId;
+						header('Location:../pasarela/GeneraPet.php');
+						$_SESSION['invoiceId']=$invoiceId;
 				}
 				else{
 					echo "<br>";
