@@ -45,8 +45,8 @@
 			$moneda="978";
 			$trans="0";
 			$url="";
-			//$urlOKKO="http://127.0.0.1/Asignaturas/DWES/MVC/WebPortalMusica_V2/PortalMusica/pasarela/RecepcionaPet.php";
-			$urlOKKO="http://192.168.206.222/REC/Pablo%20Garcia/WebPortalMusica_V2/PortalMusica/pasarela/RecepcionaPet.php";
+			$urlOKKO="http://127.0.0.1/Asignaturas/DWES/MVC/WebPortalMusica/PortalMusica/pasarela/RecepcionaPet.php";
+			// $urlOKKO="http://192.168.206.222/REC/Pablo%20Garcia/WebPortalMusica/PortalMusica/pasarela/RecepcionaPet.php";
 			$id=time();
 				
 			// Se Rellenan los campos
@@ -87,7 +87,7 @@
 <input type="text" hidden name="Ds_MerchantParameters" value="<?php echo $params; ?>"/></br>
 <input type="text" hidden name="Ds_Signature" value="<?php echo $signature; ?>"/></br>
 <input type="submit" name="enviar" value="Enviar" >
-<input type="button" value="Atras" onclick="window.location.href='../controllers/Menu_Pasajero_controllers'" class="btn btn-warning disabled"/>
+<input type="button" value="Atras" onclick="window.location.href='../controllers/Menu_PortalMusica_controllers.php'" class="btn btn-warning disabled"/>
 
 </form>
 </body>

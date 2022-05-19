@@ -55,23 +55,28 @@
 						$customerId=$_SESSION['id'];
 						$fecha=date('Y-m-d');
 						
-						insertInvoice($conexion,$invoiceId,$customerId,$fecha);
+						$error=insertInvoice($conexion,$invoiceId,$customerId,$fecha);
 						
-						foreach($canciones as $cancion){
-							$invoiceLineId=maxInvoiceLineId($conexion);
-							insertarInvoiceLine($conexion,$invoiceLineId,$invoiceId,$cancion);
+						if($error==0){
+							if($error==0){
+								foreach($canciones as $cancion){
+									$invoiceLineId=maxInvoiceLineId($conexion,$invoiceId);
+									$error=insertarInvoiceLine($conexion,$invoiceLineId,$invoiceId,$cancion);
+								}
+							}
+							if($error==0){
+								$preciototal=precioTotal($conexion,$invoiceId);
+								$preciototal=floatval($preciototal[0]);
+								$error=actualizarPrecioTotal($conexion,$invoiceId,$preciototal);
+								unset($_SESSION["idCanciones"]);
+								unset($_SESSION["canciones"]);
+							}
+							if($error==0){
+								header('Location:../pasarela/GeneraPet.php');
+								$_SESSION['invoiceId']=$invoiceId;
+							}
 						}
-						
-						$preciototal=precioTotal($conexion,$invoiceId);
-						$preciototal=floatval($preciototal[0]);
-						actualizarPrecioTotal($conexion,$invoiceId,$preciototal);
-						
-						unset($_SESSION["idCanciones"]);
-						unset($_SESSION["canciones"]);
-						
-						header('Location:../pasarela/GeneraPet.php');
-						$_SESSION['invoiceId']=$invoiceId;
-				}
+				}		
 				else{
 					echo "<br>";
 					echo "<h2 style='color:gray;'>No has seleccionado ninguna cancion para descargar</h2>";

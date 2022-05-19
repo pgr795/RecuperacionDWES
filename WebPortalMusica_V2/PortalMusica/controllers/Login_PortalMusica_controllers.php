@@ -32,6 +32,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST") {
 			header("Location:../controllers/Menu_PortalMusica_controllers.php");
 		}
 	}
+	else{
+		header("Location:../index.php");
+	}
 }
 
 var_dump($_SESSION);

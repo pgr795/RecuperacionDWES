@@ -13,9 +13,12 @@ function insertInvoice($conexion,$invoiceId,$customerId,$fecha){
 		echo "Error insertInvoice()"."<br>";
 		echo $e->getMessage();
 		$conexion->rollback();	
+		$error=1;
+		return $error;
+		
 	}
 }
-
+//'$invoiceLineId' '$invoiceId'
 function insertarInvoiceLine($conexion,$invoiceLineId,$invoiceId,$cancion){
 	try{
 		$conexion->beginTransaction();
@@ -27,6 +30,8 @@ function insertarInvoiceLine($conexion,$invoiceLineId,$invoiceId,$cancion){
 		echo "Error insertarInvoiceLine()"."<br>";
 		echo $e->getMessage();
 		$conexion->rollback();	
+		$error=1;
+		return $error;
 	}
 }
 
@@ -41,6 +46,8 @@ function actualizarPrecioTotal($conexion,$invoiceId,$preciototal){
 		echo "Error actualizar()"."<br>";
 		echo $e->getMessage();
 		$conexion->rollback();	
+		$error=1;
+		return $error;
 	}	
 }
 
@@ -115,9 +122,9 @@ function maxInvoiceId($conexion){
 	}
 }
 
-function maxInvoiceLineId($conexion){
+function maxInvoiceLineId($conexion,$invoiceId){
 	try{
-		$consulta=$conexion->prepare("SELECT max(InvoiceLineId) AS codigo FROM invoiceline");
+		$consulta=$conexion->prepare(" SELECT max(InvoiceLineId) AS codigo FROM invoiceline where invoiceId='$invoiceId'");
 		$consulta->execute();	
 		foreach($consulta->fetchAll() as $consulta){
 			$idBD=$consulta['codigo'];
